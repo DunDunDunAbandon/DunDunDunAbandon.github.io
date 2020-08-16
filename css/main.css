@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffffad;
+  background: #ffc1f4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2468,7 +2468,7 @@ body {
   width: 100%;
 }
 .site-meta {
-  background-image: url("/images/titlebackground.png");
+  opacity: 0.7;
 }
 .site-meta .site-title {
   font-size: 40px;
