@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo+yilia+github搭建个人博客（小白向）</title>
+    <url>/2020/08/15/hexo+yilia+gitpage/</url>
+    <content><![CDATA[<hr>
+<p>这是我阅览无数教程后总结的最好方法……<br>话不多说直接开始：<br>1.注册github账号，create a repository,repository name就像我这样就行了：dundundunabandon.github.io<br>2.安装git，因为要使用git bash发送命令。<a href="https://gitforwindows.org/">下载地址</a><br>3.安装node.js，因为hexo这个博客框架是基于node.js的。<a href="https://nodejs.org/en/">下载地址</a><br>4.安装hexo，选一个本地磁盘建一个blog文件夹,命名随意，点进文件夹后右键运行git bash，输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+<p>如果npm很慢，可以用cnpm，使用方法自行百度  </p>
+<a id="more"></a>
+<p>5.初始化hexo<br>在blog文件夹里再建一个hexo文件夹，点进hexo文件夹后右键运行git bash，输入：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>初始化成功后，hexo文件夹内会出现以下文件夹：<br>node_modules: 依赖包<br>public：存放生成的页面<br>scaffolds：存放生成文章的模板<br>source：存放你的博文<br>themes：存放下载的主题<br>_config.yml: 博客的核心配置文件（设置主体、标题等属性）<br>把下载的主题文件放到themes里去。我用的是<a href="https://github.com/litten/hexo-theme-yilia">yilia</a>。<br>你可以打包下载后拖动，但我更建议直接在themes文件夹下执行git bash命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
+<p>修改blog文件夹下的_config.yml文件中的theme属性</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: hexo-theme-yilia</span><br></pre></td></tr></table></figure>
+<p>接着在blog文件夹下继续执行以下命令：  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install</span><br><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
+<p>6.将博客部署到github<br>在_config.yml文件最后加上这些：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;YourgithubName&#x2F;YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><strong>注意，修改blog文件夹下的_config.yml文件，不是themes主题文件夹下的……</strong><br>继续在blog文件夹下运行gitbash:  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
+<p>接着打包上传用的命令：(这三条命令以后每次修改博客或者推送博文时都会用到)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>文件推送到GitHub是有延迟的，等几十秒再访问YourgithubName.github.io，显示页面就说明成功了~<br>创建博文直接在source_posts目录下建.md文件，然后你就可以用markdown语法愉快写作了~<br>最后如果想绑定自己买的域名也很简单，先在CMD里ping一下自己的博客地址：dundundunabandon.github.io，会返回一个IP地址，复制这个IP地址。<br>将自己的域名控制台里修改解析设置，添加两个记录，把那个IP粘贴进记录值。这里以阿里云为例,具体修改如下：<br><img src="https://s1.ax1x.com/2020/08/07/afUl4K.png" alt="avatar"></p>
+]]></content>
+      <tags>
+        <tag>秃头</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A return to Good Code（Jasone Tee）</title>
+    <url>/2020/08/10/return/</url>
+    <content><![CDATA[<hr>
+<p><a href="https://www.theserverside.com/tip/A-return-to-Good-Code">转载地址</a></p>
+<p>作者论证了代码中只有一个return的重要性，尤其是在大型项目中。值得参考:<br>Just one simple suggestion: one return statement per method, and it’s always the method’s last line.</p>
+<p>Stop doing this:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  return true; </span><br><span class="line"></span><br><span class="line">&#125;  else &#123; </span><br><span class="line"></span><br><span class="line">return false; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>It always amazes me when I dig into an open source project, and I see code written by supposed experts, and reviewed by seasoned professionals, and nobody slaps the wrists of the developer who shoves return statements right in the middle of a method.</p>
+<p>Tell me, how hard is it to do this:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">boolean flag &#x3D; true; </span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;true;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">else &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;false;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return flag;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is Java 101. Actually, it’s not even Java 101. It’s grade school Java. If a method returns a value, you declare that value as a variable at the start of the method. Then you do things that will give that variable the appropriate meaning. And then, on your last line of code, you return that variable to the calling program. And doing so is more than just about writing good code. It’s about being polite.</p>
+<p>Have you ever tried to troubleshoot some code that has return statements thrown around all over the method? It’s impossible. In fact, the first step in troubleshooting such a method is to rework the darn thing so that it doesn’t have a bunch of return statements in it. And it can always be done. There is no method that can’t be re-written to have just one, single, easy to identify return statement at the end of it.</p>
+<p>Sure, bad programmers have a million different reasons as to why they must program poorly. “I just wanted to avoid a bunch of superfluous conditional statements that the code might have to go through later on.” Well, first of all, computers are darned good at quickly evaluating a few conditional statements, so short-circuiting a method to avoid a clock cycle or two is simply ridiculous. And besides, if there’s a bunch of superfluous conditional statements that end up getting bypassed, maybe that’s a good indication that your ‘superfluous’ code should be rewritten, perhaps factored out into a different method that isn’t superfluous?</p>
+<p>The bottom line is that there’s no excuse for writing bad code or being a lazy programmer, especially when writing good code isn’t that much more difficult. Stop writing methods with a million return statements in them. A method in Java can only return one thing, and correspondingly, a method should have only one return statement in it.</p>
+<hr>
+<p>看到博客园中有位博主提出的解决方法：</p>
+<p>1.使用go to语句</p>
+<p>2.分成几个逻辑块挨个儿检查</p>
+<p>3.使用do while，失败时break</p>
+]]></content>
+      <tags>
+        <tag>秃头</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科学上网，人人有责：用VPS搭建ssr时遇到的问题和解决方法</title>
+    <url>/2020/08/05/ssr/</url>
+    <content><![CDATA[<hr>
+<p>1.申请好的VPS虚拟服务器的ip地址ping不通</p>
+<p>多申请几个服务器挨个试ip，找一个能ping通的用，其他ping不通的可以稍后摧毁，注意不要一个ping不通就立马摧毁这个服务器，否则你下一个申请到的服务器的ip很有可能还是这个ping不通的ip</p>
+<a id="more"></a>
+<p>2.用Xshell安装ssr后显示安装成功但是ssr启动不了</p>
+<p>很可能申请的服务器版本是centos8不兼容，建议摧毁重新申请centos6版本的服务器，之前安装时还遇到了什么login failed的问题也是换了服务器版本就解决了</p>
+<p>3.ssr启动后网络不稳定老是掉线</p>
+<p>我是试了几个最终把加密方法改为aes-256-cfb，协议改为auth_sha1_v4，改了好几次端口才稳定的，猜测和端口有关，可以多试几个</p>
+<hr>
+<p>另，我用的教程是<a href="https://www.paoyou.org/blog/449.html">这个</a>（他用的不是Xshell但是方法还是一样的）</p>
+<p>科学上网，人人有责~</p>
+<p>最终的结局是自己搭的梯子还是老被墙，买了个VPN用。。。（大雾）</p>
+]]></content>
+      <tags>
+        <tag>秃头</tag>
+      </tags>
+  </entry>
+</search>
