@@ -30,26 +30,6 @@
       </tags>
   </entry>
   <entry>
-    <title>科学上网，人人有责：用VPS搭建ssr时遇到的问题和解决方法</title>
-    <url>/2020/08/05/ssr/</url>
-    <content><![CDATA[<hr>
-<p>1.申请好的VPS虚拟服务器的ip地址ping不通</p>
-<p>多申请几个服务器挨个试ip，找一个能ping通的用，其他ping不通的可以稍后摧毁，注意不要一个ping不通就立马摧毁这个服务器，否则你下一个申请到的服务器的ip很有可能还是这个ping不通的ip</p>
-<a id="more"></a>
-<p>2.用Xshell安装ssr后显示安装成功但是ssr启动不了</p>
-<p>很可能申请的服务器版本是centos8不兼容，建议摧毁重新申请centos6版本的服务器，之前安装时还遇到了什么login failed的问题也是换了服务器版本就解决了</p>
-<p>3.ssr启动后网络不稳定老是掉线</p>
-<p>我是试了几个最终把加密方法改为aes-256-cfb，协议改为auth_sha1_v4，改了好几次端口才稳定的，猜测和端口有关，可以多试几个</p>
-<hr>
-<p>另，我用的教程是<a href="https://www.paoyou.org/blog/449.html">这个</a>（他用的不是Xshell但是方法还是一样的）</p>
-<p>科学上网，人人有责~</p>
-<p>最终的结局是自己搭的梯子还是老被墙，买了个VPN用。。。（大雾）</p>
-]]></content>
-      <tags>
-        <tag>秃头</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>A return to Good Code（Jasone Tee）</title>
     <url>/2020/08/10/return/</url>
     <content><![CDATA[<hr>
@@ -70,6 +50,26 @@
 <p>1.使用go to语句</p>
 <p>2.分成几个逻辑块挨个儿检查</p>
 <p>3.使用do while，失败时break</p>
+]]></content>
+      <tags>
+        <tag>秃头</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科学上网，人人有责：用VPS搭建ssr时遇到的问题和解决方法</title>
+    <url>/2020/08/05/ssr/</url>
+    <content><![CDATA[<hr>
+<p>1.申请好的VPS虚拟服务器的ip地址ping不通</p>
+<p>多申请几个服务器挨个试ip，找一个能ping通的用，其他ping不通的可以稍后摧毁，注意不要一个ping不通就立马摧毁这个服务器，否则你下一个申请到的服务器的ip很有可能还是这个ping不通的ip</p>
+<a id="more"></a>
+<p>2.用Xshell安装ssr后显示安装成功但是ssr启动不了</p>
+<p>很可能申请的服务器版本是centos8不兼容，建议摧毁重新申请centos6版本的服务器，之前安装时还遇到了什么login failed的问题也是换了服务器版本就解决了</p>
+<p>3.ssr启动后网络不稳定老是掉线</p>
+<p>我是试了几个最终把加密方法改为aes-256-cfb，协议改为auth_sha1_v4，改了好几次端口才稳定的，猜测和端口有关，可以多试几个</p>
+<hr>
+<p>另，我用的教程是<a href="https://www.paoyou.org/blog/449.html">这个</a>（他用的不是Xshell但是方法还是一样的）</p>
+<p>科学上网，人人有责~</p>
+<p>最终的结局是自己搭的梯子还是老被墙，买了个VPN用。。。（大雾）</p>
 ]]></content>
       <tags>
         <tag>秃头</tag>
