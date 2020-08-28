@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>A return to Good Code（Jasone Tee）</title>
-    <url>/2020/08/10/return/</url>
-    <content><![CDATA[<hr>
-<p><a href="https://www.theserverside.com/tip/A-return-to-Good-Code">转载地址</a></p>
-<p>作者论证了代码中只有一个return的重要性，尤其是在大型项目中。值得参考:<br>Just one simple suggestion: one return statement per method, and it’s always the method’s last line.</p>
-<p>Stop doing this:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  return true; </span><br><span class="line"></span><br><span class="line">&#125;  else &#123; </span><br><span class="line"></span><br><span class="line">return false; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>It always amazes me when I dig into an open source project, and I see code written by supposed experts, and reviewed by seasoned professionals, and nobody slaps the wrists of the developer who shoves return statements right in the middle of a method.</p>
-<p>Tell me, how hard is it to do this:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">boolean flag &#x3D; true; </span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;true;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">else &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;false;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return flag;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This is Java 101. Actually, it’s not even Java 101. It’s grade school Java. If a method returns a value, you declare that value as a variable at the start of the method. Then you do things that will give that variable the appropriate meaning. And then, on your last line of code, you return that variable to the calling program. And doing so is more than just about writing good code. It’s about being polite.</p>
-<p>Have you ever tried to troubleshoot some code that has return statements thrown around all over the method? It’s impossible. In fact, the first step in troubleshooting such a method is to rework the darn thing so that it doesn’t have a bunch of return statements in it. And it can always be done. There is no method that can’t be re-written to have just one, single, easy to identify return statement at the end of it.</p>
-<p>Sure, bad programmers have a million different reasons as to why they must program poorly. “I just wanted to avoid a bunch of superfluous conditional statements that the code might have to go through later on.” Well, first of all, computers are darned good at quickly evaluating a few conditional statements, so short-circuiting a method to avoid a clock cycle or two is simply ridiculous. And besides, if there’s a bunch of superfluous conditional statements that end up getting bypassed, maybe that’s a good indication that your ‘superfluous’ code should be rewritten, perhaps factored out into a different method that isn’t superfluous?</p>
-<p>The bottom line is that there’s no excuse for writing bad code or being a lazy programmer, especially when writing good code isn’t that much more difficult. Stop writing methods with a million return statements in them. A method in Java can only return one thing, and correspondingly, a method should have only one return statement in it.</p>
-<hr>
-<p>看到博客园中有位博主提出的解决方法：</p>
-<p>1.使用go to语句</p>
-<p>2.分成几个逻辑块挨个儿检查</p>
-<p>3.使用do while，失败时break</p>
-]]></content>
-      <tags>
-        <tag>秃头</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo+yilia+github搭建个人博客（小白向）</title>
     <url>/2020/08/15/hexo+yilia+gitpage/</url>
     <content><![CDATA[<hr>
@@ -50,6 +24,32 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>文件推送到GitHub是有延迟的，等几十秒再访问YourgithubName.github.io，显示页面就说明成功了~<br>创建博文直接在source_posts目录下建.md文件，然后你就可以用markdown语法愉快写作了~<br>最后如果想绑定自己买的域名也很简单，先在CMD里ping一下自己的博客地址：dundundunabandon.github.io，会返回一个IP地址，复制这个IP地址。<br>将自己的域名控制台里修改解析设置，添加两个记录，把那个IP粘贴进记录值。这里以阿里云为例,具体修改如下：<br><img src="https://s1.ax1x.com/2020/08/07/afUl4K.png" alt="avatar"></p>
+]]></content>
+      <tags>
+        <tag>秃头</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A return to Good Code（Jasone Tee）</title>
+    <url>/2020/08/10/return/</url>
+    <content><![CDATA[<hr>
+<p><a href="https://www.theserverside.com/tip/A-return-to-Good-Code">转载地址</a></p>
+<p>作者论证了代码中只有一个return的重要性，尤其是在大型项目中。值得参考:<br>Just one simple suggestion: one return statement per method, and it’s always the method’s last line.</p>
+<p>Stop doing this:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  return true; </span><br><span class="line"></span><br><span class="line">&#125;  else &#123; </span><br><span class="line"></span><br><span class="line">return false; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>It always amazes me when I dig into an open source project, and I see code written by supposed experts, and reviewed by seasoned professionals, and nobody slaps the wrists of the developer who shoves return statements right in the middle of a method.</p>
+<p>Tell me, how hard is it to do this:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public boolean foo() &#123;</span><br><span class="line"></span><br><span class="line">boolean flag &#x3D; true; </span><br><span class="line"></span><br><span class="line">if (true) &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;true;</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">else &#123;</span><br><span class="line"></span><br><span class="line">  flag&#x3D;false;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return flag;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is Java 101. Actually, it’s not even Java 101. It’s grade school Java. If a method returns a value, you declare that value as a variable at the start of the method. Then you do things that will give that variable the appropriate meaning. And then, on your last line of code, you return that variable to the calling program. And doing so is more than just about writing good code. It’s about being polite.</p>
+<p>Have you ever tried to troubleshoot some code that has return statements thrown around all over the method? It’s impossible. In fact, the first step in troubleshooting such a method is to rework the darn thing so that it doesn’t have a bunch of return statements in it. And it can always be done. There is no method that can’t be re-written to have just one, single, easy to identify return statement at the end of it.</p>
+<p>Sure, bad programmers have a million different reasons as to why they must program poorly. “I just wanted to avoid a bunch of superfluous conditional statements that the code might have to go through later on.” Well, first of all, computers are darned good at quickly evaluating a few conditional statements, so short-circuiting a method to avoid a clock cycle or two is simply ridiculous. And besides, if there’s a bunch of superfluous conditional statements that end up getting bypassed, maybe that’s a good indication that your ‘superfluous’ code should be rewritten, perhaps factored out into a different method that isn’t superfluous?</p>
+<p>The bottom line is that there’s no excuse for writing bad code or being a lazy programmer, especially when writing good code isn’t that much more difficult. Stop writing methods with a million return statements in them. A method in Java can only return one thing, and correspondingly, a method should have only one return statement in it.</p>
+<hr>
+<p>看到博客园中有位博主提出的解决方法：</p>
+<p>1.使用go to语句</p>
+<p>2.分成几个逻辑块挨个儿检查</p>
+<p>3.使用do while，失败时break</p>
 ]]></content>
       <tags>
         <tag>秃头</tag>
